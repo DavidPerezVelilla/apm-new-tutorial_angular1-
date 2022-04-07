@@ -41,10 +41,10 @@
                             [style.width.px]="imageWidth"
                             [style.margin.px]="imageMargin">
                         </td>
-                        <td>{{product.productName}}</td>
-                        <td>{{product.productCode | lowercase | convertToSpaces:'-'}}</td>
-                        <td>{{product.releaseDate}}</td>
-                        <td>{{product.price | currency: "EUR" : "symbol" : "1.2-2"}}</td>
+                        <td><a [routerLink]="['/products', product.productId]">{{product.productName}}</a></td>
+                        <td><a [routerLink]="['/products', product.productId]">{{product.productCode | lowercase | convertToSpaces:'-'}}</a></td>
+                        <td><a [routerLink]="['/products', product.productId]">{{product.releaseDate}}</a></td>
+                        <td><a [routerLink]="['/products', product.productId]">{{product.price | currency: "EUR" : "symbol" : "1.2-2"}}</a></td>
                         <td><pm-star [rating]="product.starRating" [name]="product.productName" (ratingClicked)="onRatingClicked($event)"></pm-star></td>
                     </tr>
                 </tbody>
