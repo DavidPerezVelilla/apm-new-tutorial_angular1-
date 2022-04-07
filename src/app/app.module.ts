@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list.component';
 import { ConvertToSpacePipe } from './shared/convert-to-spaces.pipe';
+import { starComponent } from './shared/star.component';
 
 
 //Aqui iremos agregando los componentes necesarios para nuestra App.
@@ -14,6 +15,7 @@ import { ConvertToSpacePipe } from './shared/convert-to-spaces.pipe';
     AppComponent,
     ProductListComponent,
     ConvertToSpacePipe,
+    starComponent,
     
   ],
   imports: [
