@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list.component';
 import { ConvertToSpacePipe } from './shared/convert-to-spaces.pipe';
 import { starComponent } from './shared/star.component';
+import { ProductDetailComponent } from './products/product-detail.component';
 
 
 //Aqui iremos agregando los componentes necesarios para nuestra App.
@@ -17,6 +18,8 @@ import { starComponent } from './shared/star.component';
     ProductListComponent,
     ConvertToSpacePipe,
     starComponent,
+    ProductDetailComponent,
+    
     
   ],
   imports: [
