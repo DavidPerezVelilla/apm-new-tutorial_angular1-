@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProductModule } from './product.module';
 import { IProduct } from './products';
-
+import { ProductService } from './product.service'
 @Component({
   selector: 'pm-product-detail',
   templateUrl: './product-detail.component.html',
@@ -10,25 +11,28 @@ import { IProduct } from './products';
 export class ProductDetailComponent implements OnInit {
   pageTitle: string = 'Pagina Detalle'
   product: IProduct | undefined;
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  errorMessage = '';
+  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService) { }
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.pageTitle += ` ${id}`;
-    this.product ={
-      "productId": 1,
-      "productName": "Rastrillo",
-      "productCode": "GDN-0011",
-      "releaseDate": "06-04-22",
-      "description": "Rastrillo de hojas con mango de madera de 120cm.",
-      "price": 19.95,
-      "starRating": 3.2,
-      "imageUrl": "assets/images/leaf_rake.png"
+    if(id){
+      this.getProduct(id);
     }
+    
   }
 
-  volver(): void {
+  private getProduct(id: number): void{
+    this.productService.getProduct(id).subscribe({
+      next: product =>this.product = product,
+      error: err => this.errorMessage = err
+    });
+  }
+
+  back(): void {
     this.router.navigate(['/products']);
   }
 
 }
+
+
